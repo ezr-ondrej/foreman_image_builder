@@ -1,0 +1,22 @@
+
+<% title "Images" %>
+
+<table class="<%= table_css_classes 'table-fixed' %>">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th class="col-md-1"><%= _('Actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image["id"] %></td>
+        <td>
+          <%= link_to(_("Synchronize"), foreman_image_builder.sync_image_path(image["id"]), method: :post, data: { confirm: _("Are you sure you want to sync this image?") }) %>
+          <%= link_to(_("Deploy"), foreman_image_builder.predeploy_image_path(image["id"])) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

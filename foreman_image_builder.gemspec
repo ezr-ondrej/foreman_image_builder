@@ -1,16 +1,16 @@
-require File.expand_path('lib/foreman_plugin_template/version', __dir__)
+require File.expand_path('lib/foreman_image_builder/version', __dir__)
 
 Gem::Specification.new do |s|
-  s.name        = 'foreman_plugin_template'
-  s.version     = ForemanPluginTemplate::VERSION
+  s.name        = 'foreman_image_builder'
+  s.version     = ForemanImageBuilder::VERSION
   s.metadata    = { 'is_foreman_plugin' => 'true' }
   s.license     = 'GPL-3.0'
-  s.authors     = ['TODO: Your name']
-  s.email       = ['TODO: Your email']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO: Summary of ForemanPluginTemplate.'
+  s.authors     = ['Ondrej Ezr']
+  s.email       = ['ezrik12@gmail.com']
+  s.homepage    = 'https://theforeman.org'
+  s.summary     = 'Foreman plugin providing integration with Image builder.'
   # also update locale/gemspec.rb
-  s.description = 'TODO: Description of ForemanPluginTemplate.'
+  s.description = 'This plugin provides integration with Image builder, allowing users to create and manage images for provisioning with Foreman.'
 
   s.files = Dir['{app,config,db,lib,locale,webpack}/**/*'] + ['LICENSE', 'Rakefile', 'README.md', 'package.json']
   s.test_files = Dir['test/**/*'] + Dir['webpack/**/__tests__/*.js']

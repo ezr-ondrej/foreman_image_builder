@@ -1,0 +1,8 @@
+
+About to deploy <%= @deployment.image_id %>
+
+<%= form_for(@deployment, url: deploy_image_path, method: :post) do |form| %>
+  <%= form_select_f form, :system_name, @systems.map { |system| [system["Name"], system["Name"]] } %>
+
+  <%= submit_or_cancel form, false, button_text: _("Deploy") %>
+<% end %>

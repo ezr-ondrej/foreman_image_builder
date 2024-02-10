@@ -1,0 +1,7 @@
+<%= form_for(@blueprint, url: blueprints_path, method: :post) do |form| %>
+  <%= text_f form, :name %>
+  <%= textarea_f form, :description %>
+  <%= textarea_f form, :packages %>
+  <%= textarea_f form, :customizations %>
+  <%= submit_or_cancel form %>
+<% end %>
