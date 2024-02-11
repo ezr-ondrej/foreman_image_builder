@@ -18,9 +18,8 @@ module ForemanImageBuilder
     end
 
     def build(blueprint_name)
-      image_type = "qcow2"
       build_params = { size: 2024 }
-      parse(post(build_params, "blueprints/#{blueprint_name}/build/#{image_type}"))
+      parse(post(build_params, "blueprints/#{blueprint_name}/build"))
     end
 
     def list_images
