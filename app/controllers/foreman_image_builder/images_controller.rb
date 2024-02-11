@@ -1,5 +1,6 @@
 class ForemanImageBuilder::ImagesController < ApplicationController
   def index
+    @proxies = ::SmartProxy.with_features('Images')
     @images = ForemanImageBuilder::Blueprints.new(url: ::SmartProxy.all.first.url).list_images
   end
 

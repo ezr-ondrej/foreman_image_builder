@@ -10,7 +10,7 @@ module ForemanImageBuilder
     end
 
     def all
-      parse(get("blueprints"))["blueprints"]
+      parse(get("blueprints"))["blueprints"].collect { |blueprint_attrs| Blueprint.new(blueprint_attrs) }
     end
 
     def create(blueprints)

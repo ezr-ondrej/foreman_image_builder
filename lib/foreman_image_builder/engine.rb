@@ -40,7 +40,7 @@ module ForemanImageBuilder
         end
 
         # add dashboard widget
-        widget 'foreman_image_builder_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
+        # widget 'foreman_image_builder_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
       end
     end
 

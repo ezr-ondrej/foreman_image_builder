@@ -1,6 +1,13 @@
 class ForemanImageBuilder::BlueprintsController < ::ApplicationController
   def index
-    @blueprints = ForemanImageBuilder::Blueprints.new(url: ::SmartProxy.all.first.url).all
+    @proxies = ::SmartProxy.with_features('Images')
+    @images = {}
+    @blueprints = {}
+    @proxies.each do |proxy|
+      bp_api = ForemanImageBuilder::Blueprints.new(url: proxy.url)
+      @images[proxy.id] = bp_api.list_images.group_by { |image| image["blueprint"] }
+      @blueprints[proxy.id] = bp_api.all
+    end
   end
 
   def new

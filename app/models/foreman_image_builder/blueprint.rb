@@ -1,18 +1,35 @@
 module ForemanImageBuilder
   class Blueprint
-    extend ActiveModel::Naming
-    include ActiveModel::API
-    include ActiveModel::Conversion
-    include ActiveModel::Translation
+    include ActiveModel::Model
+    include ActiveModel::Attributes
 
-    attr_accessor :name, :description, :packages, :customizations
+    attribute :name, :string
+    attribute :description, :string
+    attribute :distro, :string
+    attribute :version, :string
+    attribute :packages, array: true
+    attribute :modules, array: true
+    attribute :groups, array: true
+    attribute :customizations, :string
 
     def self.any?
       true
     end
 
-    def to_key
-      name && [name]
+    def id
+      name
+    end
+
+    def to_param
+      name
+    end
+
+    def customizations=(value)
+      super value.to_json
+    end
+
+    def customizations
+      JSON.parse(super)
     end
   end
 end
